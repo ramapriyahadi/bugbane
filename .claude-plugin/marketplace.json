@@ -1,0 +1,48 @@
+{
+  "name": "bugbane",
+  "owner": {
+    "name": "ramapriyahadi",
+    "url": "https://github.com/ramapriyahadi"
+  },
+  "metadata": {
+    "description": "The bane of bugs: agent skills for QA engineers.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "bugbane-core",
+      "description": "Tool-agnostic QA skills: test case writing, review, requirement clarification, estimation and automation planning.",
+      "source": "./",
+      "strict": false,
+      "skills": []
+    },
+    {
+      "name": "bugbane-manual",
+      "description": "Manual QA workflows: UI test identifiers, design annotation, test run review.",
+      "source": "./",
+      "strict": false,
+      "skills": []
+    },
+    {
+      "name": "bugbane-katalon",
+      "description": "Katalon Studio authoring, code review, CI/CD and test case maintenance.",
+      "source": "./",
+      "strict": false,
+      "skills": []
+    },
+    {
+      "name": "bugbane-ops",
+      "description": "QA operations: release health, test run reminders, subtasks and velocity reporting.",
+      "source": "./",
+      "strict": false,
+      "skills": []
+    },
+    {
+      "name": "bugbane-meta",
+      "description": "Agent-team orchestration and bugbane skill management.",
+      "source": "./",
+      "strict": false,
+      "skills": []
+    }
+  ]
+}
