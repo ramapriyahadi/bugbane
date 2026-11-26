@@ -41,17 +41,32 @@ Any change to a skill's files must bump `metadata.version`. CI enforces this aga
 
 ## Adding a Skill
 
-1. Copy `templates/SKILL.md` to `skills/<folder>/<name>/SKILL.md`.
-2. Add `"./skills/<folder>/<name>"` to the matching `bugbane-<folder>` plugin in `.claude-plugin/marketplace.json`.
-3. Add a row to the **Skills** table in `README.md`.
-4. Run the validator locally:
+1. Create a branch from `main` using the structural branch naming convention (`skill/<name>`).
+2. Copy `templates/SKILL.md` to `skills/<folder>/<name>/SKILL.md`.
+3. Add `"./skills/<folder>/<name>"` to the matching `bugbane-<folder>` plugin in `.claude-plugin/marketplace.json`.
+4. Add a row to the **Skills** table in `README.md`.
+5. Run the validator locally:
 
 ```bash
 python3 scripts/validate_skills.py --base origin/main
 ```
 
+## Branching & Pull Requests
+
+**bugbane** uses a **trunk-based branching model** with protected `main` and short-lived topic branches:
+
+- **`main`** is protected: direct pushes, force-pushes, and branch deletion are blocked. All changes must go through a Pull Request with the `validate` CI check passing and review conversations resolved. Merged branches are automatically deleted.
+- **Topic branches** must use one of the enforced structural prefixes in lowercase kebab-case (`<prefix>/<kebab-case-topic>`):
+  - `skill/<skill-name>` — adding or updating a skill (for example, `skill/write-ui-test-cases`)
+  - `feat/<topic>` — repository features, tooling, or marketplace capabilities
+  - `fix/<topic>` — bug fixes in skills, scripts, or templates
+  - `chore/<topic>` — maintenance, CI/CD, or configuration updates
+  - `docs/<topic>` — documentation updates (`README.md`, `CONTRIBUTING.md`)
+- Branches outside `main` and the approved prefixes (`skill/*`, `feat/*`, `fix/*`, `chore/*`, `docs/*`) are rejected by GitHub repository rulesets and CI.
+
 ## PR Checklist
 
+- [ ] Branch name follows `<prefix>/<kebab-case-topic>` (`skill/`, `feat/`, `fix/`, `chore/`, or `docs/`).
 - [ ] Skill lives at `skills/<folder>/<name>/SKILL.md` with an allowed `<folder>`.
 - [ ] `name` is verb-first kebab-case, ≤ 64 chars, and matches the folder name.
 - [ ] `description` is ≤ 1024 chars and contains no `<` or `>`.

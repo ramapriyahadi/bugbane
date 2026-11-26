@@ -13,6 +13,15 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Validate branch name
+        if: github.event_name == 'pull_request'
+        run: |
+          BRANCH="${{ github.head_ref }}"
+          if [[ ! "$BRANCH" =~ ^(skill|feat|fix|chore|docs)/[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
+            echo "ERROR: Branch '$BRANCH' must match '<prefix>/<kebab-case-topic>' where prefix is one of: skill, feat, fix, chore, docs"
+            exit 1
+          fi
+
       - name: Validate skills
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
