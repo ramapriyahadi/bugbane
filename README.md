@@ -18,6 +18,7 @@ The bane of bugs — agent skills for QA engineers.
 
 | Skill | Folder | What it does |
 |---|---|---|
+| [write-ui-test-cases](skills/core/write-ui-test-cases/SKILL.md) | core | Write BDD manual UI test cases grounded in design/spec, with reuse audit and precondition chaining |
 
 _Skills are added one PR at a time._
 

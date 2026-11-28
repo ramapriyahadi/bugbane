@@ -14,7 +14,9 @@
       "description": "Tool-agnostic QA skills: test case writing, review, requirement clarification, estimation and automation planning.",
       "source": "./",
       "strict": false,
-      "skills": []
+      "skills": [
+        "./skills/core/write-ui-test-cases"
+      ]
     },
     {
       "name": "bugbane-manual",
